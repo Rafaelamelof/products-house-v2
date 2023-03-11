@@ -16,7 +16,7 @@ server.set('views', path.resolve("src", "views"))
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: false}))// permite receber as informações do formulario
-server.use(methodOverride('_method'))
+server.use(methodOverride('_method'))// permite reconhecer outros métodos http além do get e post
 
 server.use(express.static(path.resolve("src", "public")))
 

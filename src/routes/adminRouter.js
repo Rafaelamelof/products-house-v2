@@ -1,6 +1,6 @@
 const express = require('express');
 const AdminController = require('../controllers/AdminController');
-
+const multer = require ('multer')
 
 
 const router = express.Router();
