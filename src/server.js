@@ -6,6 +6,7 @@ const path = require('path')
 const homeRouter = require('./routes/homeRouter')
 const authRouter = require('./routes/authRouter')
 const adminRouter = require('./routes/adminRouter')
+const requestLog = require('./middlewares/requestLog')
 
 
 const server = express();
@@ -19,6 +20,7 @@ server.use(express.urlencoded({ extended: false}))// permite receber as informa�
 server.use(methodOverride('_method'))// permite reconhecer outros métodos http além do get e post
 
 server.use(express.static(path.resolve("src", "public")))
+server.use(requestLog)
 
 
 server.use(usersRouter)
