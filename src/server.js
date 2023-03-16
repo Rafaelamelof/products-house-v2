@@ -28,6 +28,8 @@ server.use(homeRouter)
 server.use(authRouter)
 server.use(adminRouter)
 
+server.use(req,res,next)=>
+
 server.listen(port, () =>
   console.log(`Servidor rodando no http://localhost:${port}`)
 );
