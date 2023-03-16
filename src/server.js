@@ -28,7 +28,9 @@ server.use(homeRouter)
 server.use(authRouter)
 server.use(adminRouter)
 
-server.use(req,res,next)=>
+server.use((req,res,next) =>{
+  return res.status(404).render("not-found")
+})
 
 server.listen(port, () =>
   console.log(`Servidor rodando no http://localhost:${port}`)
