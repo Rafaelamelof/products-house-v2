@@ -1,5 +1,6 @@
 const database = require('../database/db.json') // ver pq aqui ta dando falha
 const {randomUUID} = require ('crypto')
+const productsModel = require ('../models/productsModel')
 
 const AdminController = {
     showLogin: (req, res) => {
@@ -8,7 +9,7 @@ const AdminController = {
 
     showHome: (req, res) => {
         const url = req.originalUrl;
-        const products = produtoModel.findAll();
+        const products = productsModel.findAll();
 
         return res.render('admin/home', {url, products});// não entendi, perguntar essa parte
     },
@@ -72,7 +73,7 @@ const AdminController = {
             description
         }
 
-        database.products.push(newProduct);
+        productsModel.create(newProduct)
 
         return res.redirect('/admin/home') //não entendi
     },
